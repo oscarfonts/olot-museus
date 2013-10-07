@@ -1,0 +1,12 @@
+.caveats {
+	color: #ffbb00 !important;
+}
+
+.actions {
+	color: #00bb33 !important;
+}
+
+.tacha {
+	text-decoration: line-through !important;
+	font-style: oblique !important;
+}

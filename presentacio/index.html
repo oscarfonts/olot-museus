@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Geolocalitzant les col·leccions digitals de museus i arxius</title>
+
+		<meta name="description" content="Geolocalitzant les col·leccions digitals de museus i arxius">
+		<meta name="author" content="Raf Roset, Oscar Fonts">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="reveal.js-2.5.0/css/reveal.min.css">
+		<link rel="stylesheet" href="reveal.js-2.5.0/css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="custom.css"  id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="reveal.js-2.5.0/css/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="reveal.js-2.5.0/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal.js-2.5.0/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+					<h2>Geolocalitzant les col·leccions digitals de museus i arxius</h2>
+					<br/>
+					<h3>Curs d'Especialització en Museus i Recursos Digitals</h3>
+					<br/>
+					<h4>Olot, 10 Octubre de 2013</h4>
+					<br/>
+					<p>
+						<small>Raf Roset | <a href="http://fonts.cat">Oscar Fonts</a></small>
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="reveal.js-2.5.0/lib/js/head.min.js"></script>
+		<script src="reveal.js-2.5.0/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+				width: '100%',
+				height: '100%',
+
+				theme: 'night', // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal.js-2.5.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal.js-2.5.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js-2.5.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js-2.5.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal.js-2.5.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal.js-2.5.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
