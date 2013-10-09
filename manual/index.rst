@@ -7,5 +7,4 @@ Continguts:
 .. toctree::
    :maxdepth: 2
 
-   intro
    cartodb
