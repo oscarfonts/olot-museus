@@ -1,0 +1,48 @@
+<html>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+    $.ajax({
+		url: "arqueodata.json",
+		success: function(data) {
+			toGeoJSON(data);
+		}
+	});
+
+	function toGeoJSON(data) {
+		var props = [];
+		for (i in data.cases) {
+			props[data.cases[i].id] = data.cases[i];
+		}
+
+		var geojson = {
+			type: "FeatureCollection",
+			features: []
+		}
+
+		for (i in data.polies) {
+			poly = data.polies[i];
+			f = {
+				type: "Feature",
+				geometry: {
+					type: "Polygon",
+					coordinates: [], // todo
+				},
+				properties: props[poly.i]
+			}
+
+			f.geometry.coordinates[0] = [];
+			for (c in poly.d[0]) {
+				p = [Math.round(poly.d[0][c].mb*100000)/100000, Math.round(poly.d[0][c].lb*100000)/100000];
+				f.geometry.coordinates[0].push(p);
+			}
+
+			geojson.features.push(f);
+		}
+		$("body").html(JSON.stringify(geojson));
+	}
+  </script>
+</head>
+<body>
+</body>
+</html>
