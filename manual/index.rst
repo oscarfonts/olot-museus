@@ -8,3 +8,4 @@ Continguts:
    :maxdepth: 2
 
    cartodb
+   mapbox
