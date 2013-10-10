@@ -151,10 +151,8 @@ Un cop definides les propietats, podem anar a "Export" > "Upload" per publicar e
 
    Publicar les dades a MapBox és un procés lent i costós, que consumeix molta xarxa. Es recomana NO fer la publicació durant el taller, ja que serem 20 persones i col·lapsarem la xarxa!
 
-Aquest és l'aspecte de la Carta Arqueològica publicada a MapBox:
+Aquest és l'aspecte final del mapa pujat a MapBox:
 
-http://...
+  http://a.tiles.mapbox.com/v3/oscarfonts.arqueobcn.html#17/41.38277/2.17748
 
 .. image:: img/mapbox_custom.png
-
-
