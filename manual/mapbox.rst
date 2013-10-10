@@ -48,7 +48,14 @@ Publicant dades pròpies via TileMill
 
 Caldrà descarregar-se les dades de la Carta Arqueològica de Barcelona (http://cartaarqueologica.bcn.cat/), publicada pel Servei d'Arqueologia de l’Institut de Cultura de Barcelona, i que hem preparat en format Shapefile per a major comoditat.
 
-Descarregueu doncs les dades de: http://fonts.cat/olot-museus/dades/arqueobcn.zip i descomprimiu l'arxiu.
+També hem hem preparat una capa amb el traçat urbà de Barcelona, per a utilitzar com a referència, provinent de la Base Topogràfica 1:25 000 de l'ICC.
+
+Descarregueu doncs les dades de:
+
+ * http://fonts.cat/olot-museus/dades/arqueobcn.zip
+ * http://fonts.cat/olot-museus/dades/bcn-base.zip
+
+Descomprimiu els arxius.
 
 TileMill és un programa per "cuinar" els mapes que després es pujaran a MapBox. Abans de continuar, caldrà descarregar-se també TileMill des de: https://www.mapbox.com/tilemill/
 
@@ -58,50 +65,96 @@ Caldrà crear un nou projecte i donar-hi un nom:
 
 Aquí l'accés a les eines més importants es troba a la cantonada inferior esquerra.
 
-Comencem per afegir les dades a l'eina "layers":
+Comencem per afegir la Base Topogràfica i la Carta Arqueològica amb l'eina "layers":
 
 .. image:: img/tilemill_addlayer.png
 
-Clicant a "save & style", ens generarà una simbolització per defecte. Podem fer Zoom a Barcelona, i eliminar la capa "countries".
+Clicant a "save & style", ens generarà una simbolització per defecte per a cada capa. Podem fer Zoom a Barcelona, i eliminar la capa "countries".
 
-Per simbolitzar, igual que a CartoDB, s'utilitza el llenguatge CartoCSS. En aquest cas, hi ha:
+Per simbolitzar, igual que a CartoDB, s'utilitza el llenguatge CartoCSS.
 
-* Ua regla "#map" que estableix el color de fons del mapa. Poseu-lo a "transparent".
-* Una regla "#countries", que no farem servir, i es pot eliminar.
-* Una regla "#arqueobcn" que ...
+En aquest cas, hi ha:
+
+* Ua regla "#map" que estableix el color de fons del mapa. Poseu-lo a "white".
+* Una regla "#countries", que no farem servir. Elimineu-la.
+* Unes regles "#arqueobcn" i "#bcnbase" amb uns colors generats automàticament, i que afinarem a continuació.
+
+Per a la Base Topogràfica, establirem un color de línia "#888", que es correspòn a un gris, i un gruix de 0.5::
+
+  #bcnbase {
+    line-color: #888;
+    line-width: 0.5;
+  }
+
+Per als polígons de la Carta Arqueològica farem servir el mateix estil de línia. Els polígons es pintaran de blau, amb una opacitat del 33%::
+
+  #arqueobcn {
+    line-color: #888;
+    line-width: 0.5;
+    polygon-opacity: 0.33;
+    polygon-fill: blue;
+  }
 
 
-http://a.tiles.mapbox.com/v3/oscarfonts.qwer.html#16/41.382218404313704/2.180635929107666
+Finalment, definirem unes regles de simbolització depenent del valor de la columna "result", que indica l'estat de cada jaciment. Pintarem de verd els que han donat resultats positius, de vermell els que han donat resultats negatius, i de groc aquells que, tot i donar resultats negatius, encara es poden excavar a capes més profundes. Això s'expressa en CartoCSS com::
+
+  #arqueobcn[result="Positius. Estratigrafia exhaurida"] {
+    polygon-fill: green;
+  }
+
+  #arqueobcn[result="Positius. Estratigrafia no exhaurida"] {
+    polygon-fill: green;
+  }
+
+  #arqueobcn[result="Positius. Sense rebaix del subsòl"] {
+    polygon-fill: green;
+  }
+
+  #arqueobcn[result="Negatius. Estratigrafia no exhaurida"] {
+    polygon-fill: yellow;
+  }
+
+  #arqueobcn[result="Negatius. Estratigrafia exhaurida"] {
+    polygon-fill: red;
+  }
+
+El resultat:
+
+.. image:: img/tilemill_map.png
+
+Amb l'eina "Templates" podem definir certs elements extra, com la llegenda i l'eina d'informació sobre els continguts del mapa.
+
+A l'apartat "Legend", afegiu-hi aquest contingut HTML::
+
+  <div style="background-color:green">Resultats positius</div>
+  <div style="background-color:yellow">Resultats negatius, estratigrafia no exhaurida</div>
+  <div style="background-color:red">Resultats negatius, estratigrafia exhaurida</div>
+  <div style="background-color:blue;color:white">Altres</div>
+
+A l'apartat "Teaser", aquest altre::
+
+  <h3>{{{name}}} {{{sinName}}}</h3>
+  <p>{{{address}}} ({{{district}}})</p>
+  <p>{{{result}}}</p>
+
+La funció "teaser" mostrarà les propietats de cada jaciment només passant-hi el cursor del ratolí per sobre. És una manera molt ràpida i còmoda d'inspeccionar els continguts del mapa.
+
+.. image:: img/tilemill_interaction.png
+
+Abans de la publicació final, definirem algunes propietats del mapa. És important limitar el nivell màxim de zoom i l'extensió geogràfica, ja que de seguida podem generar una quantitat inassumible de dades (el compte gratuït de MapBox permet pujar-ne, com a màxim, 50 MB). També podrem posarhi un títol, i escollir el zoom inicial del mapa.
+
+.. image:: img/tilemill_properties.png
+
+Un cop definides les propietats, podem anar a "Export" > "Upload" per publicar el resultat a MapBox.
+
+.. warning::
+
+   Publicar les dades a MapBox és un procés lent i costós, que consumeix molta xarxa. Es recomana NO fer la publicació durant el taller, ja que serem 20 persones i col·lapsarem la xarxa!
+
+Aquest és l'aspecte de la Carta Arqueològica publicada a MapBox:
+
+http://...
+
+.. image:: img/mapbox_custom.png
 
 
-
-Map {
-  background-color: transparent;
-}
-
-#arqueobcn {
-  line-color: #888;
-  line-width: 0.5;
-  polygon-opacity: 0.3;
-  polygon-fill: #ccc;
-}
-
-#arqueobcn[result="Positius. Estratigrafia exhaurida"] {
-  polygon-fill:#0f0;
-}
-
-#arqueobcn[result="Positius. Estratigrafia no exhaurida"] {
-  polygon-fill:#0f0;
-}
-
-#arqueobcn[result="Positius. Sense rebaix del subsòl"] {
-  polygon-fill:#0f0;
-}
-
-#arqueobcn[result="Negatius. Estratigrafia no exhaurida"] {
-  polygon-fill:#ff0;
-}
-
-#arqueobcn[result="Negatius. Estratigrafia exhaurida"] {
-  polygon-fill:#f00;
-}
