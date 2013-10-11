@@ -171,7 +171,7 @@ htmlhelp_basename = 'MuseusOlot-Geo'
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+'papersize': 'a4paper',
 
 # The font size ('10pt', '11pt' or '12pt').
 #'pointsize': '10pt',
@@ -183,7 +183,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'MuseusOlot-Geo.tex', u'Geolocalitzant les col·leccions digitals de museus i arxius',
+  ('index', 'MuseusOlot-Geo.tex', u'Geolocalitzant les col.leccions digitals de museus i arxius',
    u'Raf Roset, Oscar Fonts', 'manual'),
 ]
 
@@ -245,7 +245,7 @@ texinfo_documents = [
 # -- Options for Epub output ---------------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'MuseusOlot-Geo'
+epub_title = u'Geolocalitzant les col·leccions digitals de museus i arxius'
 epub_author = u'Raf Roset, Oscar Fonts'
 epub_publisher = u'Raf Roset, Oscar Fonts'
 epub_copyright = u'2013, Raf Roset, Oscar Fonts'

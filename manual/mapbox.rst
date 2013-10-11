@@ -15,6 +15,8 @@ Mapes predefinits en línia
 Com en el cas anterior, el primer és registrar-nos a http://www.mapbox.com
 
 .. image:: img/mapbox_signup.png
+   :align: center
+   :scale: 50%
 
 Des d'aquí podrem escollir si volem:
 
@@ -27,10 +29,14 @@ Escollirem un mapa de carrers (*Streets*):
 Es poden escollir unes quantes combinacions de colors a la pestanya "Presets", que després es poden ajustar a "Customize":
 
 .. image:: img/mapbox_presets.png
+   :align: center
+   :scale: 50%
 
 L'eina de mapes predefinits també permet afegir alguns marcadors, i editar el títol i controls del mapa. Un cop acabat, es pot publicar el mapa mitjançant el botó "Publish":
 
 .. image:: img/mapbox_publish.png
+   :align: center
+   :scale: 50%
 
 L'ús de predefinits és prou senzill i intuïtiu, i és una manera molt ràpida de donar un "to" diferent als nostres mapes.
 
@@ -41,6 +47,8 @@ L'ús de predefinits és prou senzill i intuïtiu, i és una manera molt ràpida
    Observeu la següent imatge:
 
    .. image:: img/mapbox_cartodb.png
+      :align: center
+      :scale: 50%
 
 
 Publicant dades pròpies via TileMill
@@ -62,12 +70,16 @@ TileMill és un programa per "cuinar" els mapes que després es pujaran a MapBox
 Caldrà crear un nou projecte i donar-hi un nom:
 
 .. image:: img/tilemill_new.png
+   :align: center
+   :scale: 50%
 
 Aquí l'accés a les eines més importants es troba a la cantonada inferior esquerra.
 
 Comencem per afegir la Base Topogràfica i la Carta Arqueològica amb l'eina "layers":
 
 .. image:: img/tilemill_addlayer.png
+   :align: center
+   :scale: 50%
 
 Clicant a "save & style", ens generarà una simbolització per defecte per a cada capa. Podem fer Zoom a Barcelona, i eliminar la capa "countries".
 
@@ -121,6 +133,8 @@ Finalment, definirem unes regles de simbolització depenent del valor de la colu
 El resultat:
 
 .. image:: img/tilemill_map.png
+   :align: center
+   :scale: 50%
 
 Amb l'eina "Templates" podem definir certs elements extra, com la llegenda i l'eina d'informació sobre els continguts del mapa.
 
@@ -140,10 +154,14 @@ A l'apartat "Teaser", aquest altre::
 La funció "teaser" mostrarà les propietats de cada jaciment només passant-hi el cursor del ratolí per sobre. És una manera molt ràpida i còmoda d'inspeccionar els continguts del mapa.
 
 .. image:: img/tilemill_interaction.png
+   :align: center
+   :scale: 50%
 
 Abans de la publicació final, definirem algunes propietats del mapa. És important limitar el nivell màxim de zoom i l'extensió geogràfica, ja que de seguida podem generar una quantitat inassumible de dades (el compte gratuït de MapBox permet pujar-ne, com a màxim, 50 MB). També podrem posarhi un títol, i escollir el zoom inicial del mapa.
 
 .. image:: img/tilemill_properties.png
+   :align: center
+   :scale: 50%
 
 Un cop definides les propietats, podem anar a "Export" > "Upload" per publicar el resultat a MapBox.
 
@@ -156,3 +174,5 @@ Aquest és l'aspecte final del mapa pujat a MapBox:
   http://a.tiles.mapbox.com/v3/oscarfonts.arqueobcn.html#17/41.38277/2.17748
 
 .. image:: img/mapbox_custom.png
+   :align: center
+   :scale: 50%

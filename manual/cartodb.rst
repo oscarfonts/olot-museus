@@ -20,7 +20,8 @@ Podem crear el mapa en un minut, seguint aquests tres senzills passos:
   Accediu a http://cartodb.com i registreu-vos clicant a "Sign up now".
 
   .. image:: img/cartodb_signup.png
-
+     :align: center
+     :scale: 50%
 
 2. Pujar les dades
 
@@ -35,6 +36,8 @@ Podem crear el mapa en un minut, seguint aquests tres senzills passos:
     http://fonts.cat/olot-museus/dades/BCIN-wikipedia.csv
 
   .. image:: img/cartodb_import.png
+     :align: center
+     :scale: 50%
 
   .. note::
 
@@ -43,6 +46,8 @@ Podem crear el mapa en un minut, seguint aquests tres senzills passos:
   Ja tenim publicats els 2304 registres dels Béns Culturals, amb informació sobre la seva localització, època, estil, identificació i, en alguns casos, fotografia:
 
   .. image:: img/cartodb_table.png
+     :align: center
+     :scale: 50%
 
   A la taula de dades, fixeu-vos especialment en la columna ``the_geom``. CartoDB l'ha creat automàticament a partir de les columnes ``lat`` i ``lon`` del fitxer CSV original. És la columna que permetrà mostrar la informació sobre un mapa.
 
@@ -59,6 +64,8 @@ Podem crear el mapa en un minut, seguint aquests tres senzills passos:
   Cliqueu a "Map view":
 
   .. image:: img/cartodb_defaultmap.png
+     :align: center
+     :scale: 50%
 
   Novament, a la columna dreta teniu la consola SQL i unes quantes eines per personalitzar el mapa, que veurem a continuació.
 
@@ -79,10 +86,14 @@ Experimenteu amb les diferents opcions de simbolització.
 Nosaltres proposem una simbolització per categories, a partir de la columna ``estil``. L'eina crearà uns colors per als valors més habituals, i generarà una llegenda. Els colors es poden editar per tal de comunicar millor la categoria que es vol representar.
 
 .. image:: img/cartodb_categories.png
+   :align: center
+   :scale: 50%
 
 Al capdavall, aquest assistent de simbolització està generant un codi CartoCSS, similar al que es fa servir en el disseny web, i que en última instància es pot modificar a mà mitjançant l'eina específica:
 
 .. image:: img/cartodb_css.png
+   :align: center
+   :scale: 50%
 
 El llenguatge CartoCSS és a la visualització el que el llenguatge SQL és a les dades. Si es vol tenir un domini total sobre l'aspecte del mapa, cal conèixer-lo.
 
@@ -101,6 +112,8 @@ Mapa de base
 Des de la part superior, es pot canviar el mapa de base d'entre vuit predefinits:
 
 .. image:: img/cartodb_basemap.png
+   :align: center
+   :scale: 50%
 
 A més, es poden afegir altres mapes de base amb la opció "+ Add yours". Per exemple, podem afegir aquests serveis de mapes de l'Institut cartogràfic de Catalunya:
 
@@ -111,6 +124,8 @@ A més, es poden afegir altres mapes de base amb la opció "+ Add yours". Per ex
 Aquest és un exemple amb l'ortofoto de l'ICC:
 
 .. image:: img/cartodb_custom_basemap.png
+   :align: center
+   :scale: 50%
 
 
 Info
@@ -121,6 +136,8 @@ També podem configurar l'aspecte del globus emergent en clicar sobre un element
 Cal arrossegar la columna "imatge" al primer lloc de la llista, i la columna "nomcoor" al segon lloc, perquè s'utilitzi com a títol. La resta de columnes es poden mostrar a continuació, amb o sense títol.
 
 .. image:: img/cartodb_info.png
+   :align: center
+   :scale: 50%
 
 
 Visualitzacions
@@ -135,28 +152,39 @@ Torneu a la pàgina inicial de CartoDB, i afegiu-hi aquesta nova taula:
 Es tracta d'un fitxer *shapefile* amb les comarques catalanes, provinent de la Base Municipal 1:1 000 000 de l'ICC.
 
 .. image:: img/cartodb_import2.png
+   :align: center
+   :scale: 50%
 
 Hi aplicarem una simbolització senzilla, amb fons blanc, vora negra, i un 70% d'opacitat. També podem etiquetar les comarques:
 
 .. image:: img/cartodb_comarques.png
+   :align: center
+   :scale: 50%
 
 Podem aprofitar per clicar sobre el nom de la capa, a la part superior esquerra de la pantalla, i canviar el seu nom, de l'oficial "bm1000mv33sh1fpc1r170" cap a quelcom més intel·ligible, com "comarques".
 
 Ara crearem una **visualització**. Una visualització és un mapa que conté més d'una capa de CartoDB. Per crear-la, cliqueu sobre el botó "+" que trobareu a sobre de les eines de mapa:
 
 .. image:: img/cartodb_addlayer.png
+   :align: center
+   :scale: 50%
 
 I afegiu-hi la capa "bcin-wikipedia". Us demanarà que doneu nom a la visualització:
 
 .. image:: img/cartodb_create_viz.png
+   :align: center
+   :scale: 50%
 
 Finalment, clicant sobre el botó "publish" de la cantonada superior dreta, podem definir l'aspecte final del mapa, i publicar-lo al nostre web:
 
 .. image:: img/cartodb_publish.png
-
+   :align: center
+   :scale: 50%
 
 Per exemple::
 
   http://cdb.io/1e8uxBT
 
 .. image:: img/cartodb_final.png
+   :align: center
+   :scale: 50%
